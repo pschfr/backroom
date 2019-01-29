@@ -1,5 +1,7 @@
 <p>
-	Put this in your pipe &amp; smoke it!
+	This is a barcode for
+	<code>
+		<%= @loc.scan(/.{1,3}/).join(' ') %>.
+	</code>
 </p>
-<%= @barcode %>
-<%= @barcode.to_svg %>
+<%= BarcodeHelper.barcode("L#{@loc}1").to_svg %>

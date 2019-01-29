@@ -9,8 +9,8 @@ require_relative 'lib/barcode'
 
 # On '/' page, do this...
 get '/' do
-  # Generates a barcode from location, then returns it to the page
-  @barcode = BarcodeHelper.barcode('L01A001A01')
+  # Gets location from query parameter, or load in L01A001A01 if not present.
+  @loc = params['loc'] || 'L01A001A01'
 
   # Render views/index.erb
   erb :index
