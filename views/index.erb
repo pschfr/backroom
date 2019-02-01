@@ -1,9 +1,16 @@
-<% for loc in LocationHelper.all_locations %>
-	<p>
-		This is a barcode for
-		<code>
-			<%= loc %>.
-		</code>
-	</p>
-	<%= BarcodeHelper.barcode(loc).to_svg %>
-<% end %>
+<table data-toggle="table" data-pagination="true" data-search="true" data-search-align="left" data-show-columns="true" data-show-toggle="true">
+	<thead>
+		<tr>
+			<th data-sortable="true">Location</th>
+			<th>Barcode</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% for loc in LocationHelper.all_locations %>
+			<tr>
+				<td><samp><%= loc %></samp></td>
+				<td><%= BarcodeHelper.barcode(loc).to_svg %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

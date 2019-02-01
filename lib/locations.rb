@@ -29,7 +29,7 @@ class LocationHelper
     01D006
     01D007
     01F500
-    O1M600
+    01M600
     01P700
     99B100
     99B101

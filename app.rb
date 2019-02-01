@@ -3,6 +3,7 @@ require 'bundler/setup'
 
 # Load the gems
 require 'sinatra'
+require 'sprockets'
 
 # Require my helpers
 require_relative 'lib/barcode'
