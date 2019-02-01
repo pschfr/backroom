@@ -17,3 +17,9 @@ get '/' do
   # Render views/index.erb
   erb :index
 end
+
+# Get anything from /docs
+get '/docs/*' do
+  # Renders the proper file based on route
+  erb :"#{request.path_info}"
+end
