@@ -1,4 +1,4 @@
-<table data-toggle="table" data-pagination="true" data-search="true" data-search-align="left" data-show-columns="true" data-show-toggle="true">
+<table data-toggle="table" data-pagination="true" data-search="true" data-search-align="left" data-show-columns="true" data-show-toggle="true" data-classes="table-bordered table-striped text-center">
 	<thead>
 		<tr>
 			<th data-sortable="true">Location</th>
@@ -9,7 +9,7 @@
 		<% for loc in LocationHelper.all_locations %>
 			<tr>
 				<td><samp><%= loc %></samp></td>
-				<td><%= BarcodeHelper.barcode(loc).to_svg %></td>
+				<td><%= BarcodeHelper.barcode(loc).to_svg(:height => 50) %></td>
 			</tr>
 		<% end %>
 	</tbody>
