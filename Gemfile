@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Barcode generator
+gem 'barby'
+
 # The ever so popular front end framework
 gem 'bootstrap'
 
@@ -18,5 +21,5 @@ gem 'sinatra'
 # Asset (CSS and JS) handler
 gem 'sprockets'
 
-# Barcode generator
-gem 'barby'
+# Fast and light web server
+gem 'thin'
