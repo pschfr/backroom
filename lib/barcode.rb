@@ -7,7 +7,7 @@ require 'barby/outputter/svg_outputter'
 class BarcodeHelper
   puts '== BarcodeHelper loaded'
   def self.barcode(location)
-    puts '== Barcode function loaded'
+    puts "== Barcode function loaded, printing #{location}"
     Barby::Code39.new(location)
   end
 end

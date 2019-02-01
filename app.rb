@@ -6,6 +6,7 @@ require 'sinatra'
 
 # Require my helpers
 require_relative 'lib/barcode'
+require_relative 'lib/locations'
 
 # On '/' page, do this...
 get '/' do
