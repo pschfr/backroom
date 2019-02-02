@@ -4,3 +4,4 @@
 //= require rails-assets-bootstrap-table-1.12.1/app/assets/javascripts/bootstrap-table/bootstrap-table
 //= require rails-assets-echojs-1.7.3/app/assets/javascripts/echojs/dist/echo
 //= require javascripts/echo_config
+//= require javascripts/dropdowns
