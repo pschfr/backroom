@@ -14,14 +14,20 @@ get '/' do
   erb :index
 end
 
+# On '/dpci' page, do this...
+get '/dpci' do
+  # Render views/dpci.erb
+  erb :dpci, locals: { num: params['dpci'] }
+end
+
 # On '/location/*', do this...
-get '/location/*' do
-  # Render the single barcode template
-  erb :barcode, locals: { loc: request.path_info.gsub!('/location/', '') }
+get '/location/:loc' do
+  # Render the single barcode template, sends the location to the page
+  erb :barcode, locals: { loc: params['loc'] }
 end
 
 # Get anything from /docs
-get '/docs/*' do
-  # Renders the proper file based on route
-  erb :"#{request.path_info}"
+get '/docs/:name' do
+  # Renders the proper file based query parameter
+  erb :"docs/#{params['name']}"
 end

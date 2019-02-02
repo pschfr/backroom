@@ -1,0 +1,22 @@
+<div class="d-flex vh-100">
+		<div class="mx-auto text-center align-self-center">
+			<% if num %>
+				<% BarcodeHelper.new_barcode(num, 'dpcis/') %>
+				<%= BarcodeHelper.barcode_svg("dpcis/#{num}", 'vh-90') %>
+				<p>
+					<%= num %>
+				</p>
+			<% else %>
+				<h1>DPCI to Barcode</h1>
+				<p>&nbsp;</p>
+				<form id="dpci">
+					<label for="dpci">
+						<span class="sr-only">DPCI</span>
+						<input type="number" name="dpci" class="form-control" placeholder="XXX-XX-XXXX" required />
+					</label>
+					<br/>
+					<input type="submit" class="btn btn-primary" value="Generate Barcode" />
+				</form>
+			<% end %>
+		</div>
+	</div>

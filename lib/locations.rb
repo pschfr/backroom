@@ -23,6 +23,8 @@ class LocationHelper
     '01A013': %w[a z],
     '01A014': %w[a z],
     '01A015': %w[a z],
+    '01B001': %w[a r],
+    '01B002': %w[a r],
     '01C400': %w[a l],
     '01D001': %w[a z],
     '01D002': %w[a z],
@@ -80,15 +82,12 @@ class LocationHelper
 
     # Loop over rooms, load locations into array
     ROOMS.each do |room|
-      # p room[0]
       # This is probably bad, but I'm gonna try nesting loops...
       # This is a range based loop generated from one of the ['a', 'z'] arrays,
       # because certain locations go from A to Z and some go A to G.
       (room[1][0]..room[1][1]).each do |letter|
-        # Makes the letter uppercase permanently
-        p letter.upcase!
-        # Pushes it to later location array
-        locations.push("#{PREFIX}#{room[0]}#{letter}01#{SUFFIX}")
+        # Makes the letter uppercase permanently, and pushes it to the array
+        locations.push("#{PREFIX}#{room[0]}#{letter.upcase!}01#{SUFFIX}")
       end
     end
 
