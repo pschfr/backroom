@@ -10,12 +10,14 @@ require_relative 'lib/locations'
 
 # On '/' page, do this...
 get '/' do
-  # Gets location from query parameter, or load in L01A001A01 if not present.
-  @loc = params['loc'] || '01A001A01'
-  @loc.upcase!
-
   # Render views/index.erb
   erb :index
+end
+
+# On '/location/*', do this...
+get '/location/*' do
+  # Render the single barcode template
+  erb :barcode, :locals => { :loc => request.path_info.gsub!('/location/', '') }
 end
 
 # Get anything from /docs

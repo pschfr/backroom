@@ -1,0 +1,8 @@
+<div class="d-flex vh-100">
+	<div class="mx-auto text-center align-self-center">
+		<%= BarcodeHelper.barcode(loc).to_svg(:height => 150) %>
+		<p>
+			<%= loc %>
+		</p>
+	</div>
+</div>

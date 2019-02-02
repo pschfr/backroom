@@ -8,7 +8,11 @@
 	<tbody>
 		<% for loc in LocationHelper.all_locations %>
 			<tr>
-				<td><samp><%= loc %></samp></td>
+				<td>
+					<a href="/location/<%= loc %>">
+						<samp><%= loc %></samp>
+					</a>
+				</td>
 				<td><%= BarcodeHelper.barcode(loc).to_svg(:height => 50) %></td>
 			</tr>
 		<% end %>
