@@ -9,8 +9,13 @@ gem 'bootstrap'
 # Unfortunately, necessary for Bootstrap's JS
 gem 'jquery-rails'
 
-# Additional table plugin for Bootstrap's tables
-gem 'rails-assets-bootstrap-table', source: 'https://rails-assets.org'
+# These gems come from a different source
+source 'https://rails-assets.org' do
+  # Additional table plugin for Bootstrap's tables
+  gem 'rails-assets-bootstrap-table'
+  # Image lazy loading functionality
+  gem 'rails-assets-echojs'
+end
 
 # Only loaded in dev or test env
 group :development, :test do

@@ -23,9 +23,9 @@ class BarcodeHelper
   end
 
   # Prints the proper image tag for the SVG
-  def self.barcode_svg(location, html_class)
+  def self.barcode_svg(location, html_class = '')
     puts "== Barcode SVG loaded, printing #{location} tag..."
     # Returns image tag to page
-    "<img src='/assets/svg/#{location}.svg' alt='#{location}' class='#{html_class}' />"
+    "<img data-echo='/assets/svg/#{location}.svg' alt='#{location}' class='#{html_class}' />"
   end
 end
