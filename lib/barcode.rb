@@ -3,7 +3,11 @@ require 'barby'
 require 'barby/barcode/code_39'
 require 'barby/outputter/svg_outputter'
 
-# Generates or prints barcode from location
+# Require FileUtils to recursively create parent directories
+# https://stackoverflow.com/a/12617369
+require 'fileutils'
+
+# Generates or prints barcode from input
 class BarcodeHelper
   puts '== BarcodeHelper loaded'
 
@@ -12,20 +16,23 @@ class BarcodeHelper
   BARCODE_HEIGHT = 50
 
   # Prints barcode to SVG file for later usage
-  def self.new_barcode(location, subfolder = '')
-    puts "== New barcode function loaded, printing #{location} to SVG file..."
+  def self.new_barcode(input, subfolder = '')
+    puts "== New barcode function loaded, printing #{input} to SVG file..."
 
     # Raw SVG data, making it uppercase just in case.
-    blob = Barby::Code39.new(location.upcase).to_svg(height: BARCODE_HEIGHT)
+    blob = Barby::Code39.new(input.upcase).to_svg(height: BARCODE_HEIGHT)
+
+    # Creates assets/svg/*, as it doesn't exist at this point
+    FileUtils.mkdir_p("#{FILE_PATH}#{subfolder}")
 
     # Save data to file
-    File.open("#{FILE_PATH}#{subfolder}#{location}.svg", 'wb') { |f| f.write(blob) }
+    File.open("#{FILE_PATH}#{subfolder}#{input}.svg", 'wb') { |f| f.write(blob) }
   end
 
   # Prints the proper image tag for the SVG
-  def self.barcode_svg(location, html_class = '')
-    puts "== Barcode SVG loaded, printing #{location} tag..."
+  def self.barcode_svg(input, html_class = '')
+    puts "== Barcode SVG loaded, printing #{input} tag..."
     # Returns image tag to page
-    "<img data-echo='/#{FILE_PATH}#{location}.svg' alt='#{location}' class='#{html_class}' />"
+    "<img data-echo='/#{FILE_PATH}#{input}.svg' alt='#{input}' class='#{html_class}' />"
   end
 end
