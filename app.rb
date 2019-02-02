@@ -17,7 +17,7 @@ end
 # On '/location/*', do this...
 get '/location/*' do
   # Render the single barcode template
-  erb :barcode, :locals => { :loc => request.path_info.gsub!('/location/', '') }
+  erb :barcode, locals: { loc: request.path_info.gsub!('/location/', '') }
 end
 
 # Get anything from /docs

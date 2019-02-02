@@ -13,7 +13,7 @@
 						<samp><%= loc %></samp>
 					</a>
 				</td>
-				<td><%= BarcodeHelper.barcode(loc).to_svg(:height => 50) %></td>
+				<td><%= BarcodeHelper.barcode_svg(loc) %></td>
 			</tr>
 		<% end %>
 	</tbody>
