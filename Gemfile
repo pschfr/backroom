@@ -29,5 +29,8 @@ gem 'sass'
 # DSL for quickly creating web apps
 gem 'sinatra'
 
+# Common extensions for Sinatra
+gem 'sinatra-contrib'
+
 # Asset (CSS and JS) handler
 gem 'sprockets'

@@ -3,6 +3,7 @@ require 'bundler/setup'
 
 # Load the gems
 require 'sinatra'
+require 'sinatra/multi_route'
 
 # Require my helpers
 require_relative 'lib/barcode'
@@ -14,16 +15,10 @@ get '/' do
   erb :index
 end
 
-# On '/dpci' page, do this...
-get '/dpci' do
-  # Render views/dpci.erb
-  erb :dpci, locals: { num: params['dpci'] }
-end
-
-# On '/location/*', do this...
-get '/location/:loc' do
+# On '/dpci' or '/location/*' page, do this...
+get '/dpci', '/location/:loc' do
   # Render the single barcode template, sends the location to the page
-  erb :barcode, locals: { loc: params['loc'] }
+  erb :dpci, locals: { num: params['loc'] || params['dpci'] }
 end
 
 # Get anything from /docs
