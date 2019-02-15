@@ -52,3 +52,5 @@ build-iPhoneSimulator/
 # My custom .gitignore rules:
 # Ignores any DPCIs generated, as I don't need to save those files.
 assets/svg/dpcis/*
+# As well as common barcodes, so my password isn't as exposed
+assets/svg/common/*

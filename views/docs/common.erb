@@ -1,0 +1,18 @@
+<div class="d-flex vh-100">
+	<div class="mx-auto text-center align-self-center">
+		<div>
+			<% BarcodeHelper.new_barcode('72246838', 'common/') %>
+			<%= BarcodeHelper.barcode_svg('common/72246838') %><br/>72246838
+		</div>
+		<br/>
+		<div>
+			<% BarcodeHelper.new_barcode('t@rg3t2757', 'common/') %>
+			<%= BarcodeHelper.barcode_svg('common/t@rg3t2757') %><br/>password
+		</div>
+		<br/>
+		<div>
+			<% BarcodeHelper.new_barcode('SHPPP', 'common/') %>
+			<%= BarcodeHelper.barcode_svg('common/SHPPP') %><br/>SHPPP
+		</div>
+	</div>
+</div>

@@ -1,6 +1,6 @@
 # Require barby and its dependencies
 require 'barby'
-require 'barby/barcode/code_39'
+require 'barby/barcode/code_128'
 require 'barby/outputter/svg_outputter'
 
 # Require FileUtils to recursively create parent directories
@@ -20,7 +20,7 @@ class BarcodeHelper
     puts "== New barcode function loaded, printing #{input} to SVG file..."
 
     # Raw SVG data, making it uppercase just in case.
-    blob = Barby::Code39.new(input.upcase).to_svg(height: BARCODE_HEIGHT)
+    blob = Barby::Code128.new(input.upcase).to_svg(height: BARCODE_HEIGHT)
 
     # Creates assets/svg/*, as it doesn't exist at this point
     FileUtils.mkdir_p("#{FILE_PATH}#{subfolder}")
